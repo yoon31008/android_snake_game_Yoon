@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import com.codepath.simplegame.AbstractGamePanel;
 
 public class SnakeGamePanel extends AbstractGamePanel {
-
+	
 	public SnakeGamePanel(Context context) {
 		super(context);
 	}
@@ -33,13 +33,13 @@ public class SnakeGamePanel extends AbstractGamePanel {
 
 	private float drawControllButton_width = 300;
 	private float drawControllButton_height = 300;
-	private float drawControllButton_left;
-	private float drawControllButton_right;
-	private float drawControllButton_top;
-	private float drawControllButton_bottom;
+	public float drawControllButton_left;
+	public float drawControllButton_right;
+	public float drawControllButton_top;
+	public float drawControllButton_bottom;
 
-	private float drawControllButtonCenter_X;
-	private float drawControllButtonCenter_Y;
+	public float drawControllButtonCenter_X;
+	public float drawControllButtonCenter_Y;
 
 	private float ControllButtonLineHor_leftX, ControllButtonLineHor_leftY, ControllButtonLineHor_rightX, ControllButtonLineHor_rightY;
     private float ControllButtonLineVer_topX, ControllButtonLineVer_topY, ControllButtonLineVer_bottomX, ControllButtonLineVer_bottomY;

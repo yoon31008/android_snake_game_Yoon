@@ -1,9 +1,9 @@
 package com.codepath.simplegame.threads;
 
-import com.codepath.simplegame.AbstractGamePanel;
-
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
+
+import com.codepath.simplegame.AbstractGamePanel;
 
 public class FrameGameLoopThread extends BaseGameThread {
 	// desired fps

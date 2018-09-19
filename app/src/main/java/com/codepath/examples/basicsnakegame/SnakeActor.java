@@ -15,6 +15,8 @@ import com.codepath.simplegame.AbstractGamePanel;
 import com.codepath.simplegame.Velocity;
 import com.codepath.simplegame.actors.SimpleMovingActor;
 
+import com.codepath.examples.basicsnakegame.SnakeGamePanel;
+
 public class SnakeActor extends SimpleMovingActor {
 	public static final int DRAW_SIZE = 25;
 	public static final int STEP = 25;
@@ -100,4 +102,36 @@ public class SnakeActor extends SimpleMovingActor {
 			}
 		}
 	}
+
+	public float touchRotate_X(MotionEvent event){
+		event.getX()
+	}
+
+	public float touchRotate_Y(MotionEvent event){
+
+	}
+
+	public boolean upBtnTouched(MotionEvent event){
+		if(event.getX() >= boxleft && event.getX() <= boxCenter
+				&& event.getY() >= boxcenter && event.getY() <= boxTop)
+			return true;
+    }
+
+    public boolean downBtnTouched(MotionEvent event){
+		if(event.getX() >= boxcenter && event.getX() <= boxright
+				&& event.getY() >= boxbottom && event.getY() <= boxCenter)
+			return true;
+    }
+
+    public boolean leftBtnTouched(MotionEvent event){
+		if(event.getX() >= boxleft && event.getX() <= boxCenter
+				&& event.getY() >= boxbottom && event.getY() <= boxCenter)
+			return true;
+    }
+
+    public boolean rightBtnTouched(MotionEvent event){
+		if(event.getX() >= boxcenter && event.getX() <= boxright
+				&& event.getY() >= boxcenter && event.getY() <= boxTop)
+			return true;
+    }
 }

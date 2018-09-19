@@ -31,12 +31,18 @@ public class SnakeGamePanel extends AbstractGamePanel {
 
 	private float gameOverText_bottom;
 
-	private float drawControllButton_width = 400;
-	private float drawControllButton_height = 400;
+	private float drawControllButton_width = 300;
+	private float drawControllButton_height = 300;
 	private float drawControllButton_left;
 	private float drawControllButton_right;
 	private float drawControllButton_top;
 	private float drawControllButton_bottom;
+
+	private float drawControllButtonCenter_X;
+	private float drawControllButtonCenter_Y;
+
+	private float ControllButtonLineHor_leftX, ControllButtonLineHor_leftY, ControllButtonLineHor_rightX, ControllButtonLineHor_rightY;
+    private float ControllButtonLineVer_topX, ControllButtonLineVer_topY, ControllButtonLineVer_bottomX, ControllButtonLineVer_bottomY;
 
 	Paint myPaint = new Paint();
 	Paint myPaint2 = new Paint();
@@ -57,10 +63,24 @@ public class SnakeGamePanel extends AbstractGamePanel {
 
 		gameOverText_bottom = getHeight() * 1/3;
 
-		drawControllButton_left = getWidth() / 2 - drawControllButton_width / 2;
-		drawControllButton_top = getHeight() / 2 - drawControllButton_height / 2;
-		drawControllButton_right = drawControllButton_left + drawControllButton_width;
-		drawControllButton_bottom = drawControllButton_top + drawControllButton_height;
+		drawControllButtonCenter_X = getWidth() * 3/4;
+		drawControllButtonCenter_Y = getHeight() * 6/7;
+
+		drawControllButton_left = drawControllButtonCenter_X - drawControllButton_width / 2;
+		drawControllButton_top = drawControllButtonCenter_Y - drawControllButton_height / 2;
+		drawControllButton_right = drawControllButtonCenter_X + drawControllButton_width / 2;
+		drawControllButton_bottom = drawControllButtonCenter_Y + drawControllButton_height / 2;
+
+		ControllButtonLineHor_leftX = drawControllButton_left;
+		ControllButtonLineHor_leftY = drawControllButtonCenter_Y;
+		ControllButtonLineHor_rightX = drawControllButton_right;
+		ControllButtonLineHor_rightY = drawControllButtonCenter_Y;
+
+		ControllButtonLineVer_bottomX = drawControllButtonCenter_X;
+		ControllButtonLineVer_bottomY = drawControllButton_bottom;
+		ControllButtonLineVer_topX = drawControllButtonCenter_X;
+		ControllButtonLineVer_topY = drawControllButton_top;
+
 	}
 
 	@Override
@@ -150,6 +170,12 @@ public class SnakeGamePanel extends AbstractGamePanel {
 		myPaint3.setColor(Color.GREEN);
 		myPaint3.setStyle(Paint.Style.STROKE);
 		myPaint3.setStrokeWidth(10);
+
+		canvas.save();
+		canvas.rotate(45, drawControllButtonCenter_X, drawControllButtonCenter_Y);
 		canvas.drawRect(drawControllButton_left, drawControllButton_top, drawControllButton_right, drawControllButton_bottom, myPaint3);
+		canvas.drawLine(ControllButtonLineHor_leftX, ControllButtonLineHor_leftY, ControllButtonLineHor_rightX, ControllButtonLineHor_rightY, myPaint3);
+		canvas.drawLine(ControllButtonLineVer_topX, ControllButtonLineVer_topY, ControllButtonLineVer_bottomX, ControllButtonLineVer_bottomY, myPaint3);
+		canvas.restore();
 	}
 }
